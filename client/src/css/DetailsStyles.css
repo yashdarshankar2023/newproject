@@ -286,6 +286,7 @@ body {
 }
 
 
+
 .contact_form {
 
   height: 650px;
@@ -308,4 +309,55 @@ body {
 .contact_form input[type=radio]{
   width: 60px;
   margin-left: 10%;
+}
+@media screen and (max-width:500px) {
+  .total_charts {
+    text-align: center;
+    display: block;
+  }
+  .chart1{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+    text-align: center;
+    font-family: arial;
+    
+    width: 90%;
+    height: 500px;
+    text-align: center;
+  }
+  .chart2{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    font-family: arial; 
+  
+    width: 90%;
+    height: 500px;
+    text-align: center;
+    margin-left: 10%;
+  }
+  .types_charts{
+    display: block;
+  }
+  .diff_charts {
+  
+  
+  
+    width: 90%;
+    height: 400px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: auto;
+    font-family: arial;
+    margin-top: 5%;
+  
+  }
+  .contact_form{
+    width: 90%;
+    margin-left: 5%;
+  }
+  .form-container input[type=radio]{
+    height: 20px;
+    width: 20px;
+  
+  }
+  
+  
 }

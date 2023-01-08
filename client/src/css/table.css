@@ -171,3 +171,12 @@ figcaption p{
 .button:hover, a:hover {
   opacity: 0.7;
 }
+
+@media screen and (max-width: 600px) {
+  .listing-item {
+    display: block;
+    width: -webkit-calc(90%/1);
+    width: -moz-calc(90%/1);
+     width: calc(90%/1);
+     margin-top: 5%;
+   }}

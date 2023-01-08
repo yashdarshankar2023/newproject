@@ -58,6 +58,26 @@ const table = (SetselectMode) => {
             </figure>
 
           </div>
+          <div class="listing-item">
+            <figure class="image">
+              <img src={data_hospital.link} alt="image" />
+
+              <div class="listing">
+                <h4>{data_hospital.name}</h4>
+                <h4>Total :{data_hospital.vacancy}</h4>
+                <h4>General : {data_hospital.general_bed}</h4>
+                <h4>Oxygen : {data_hospital.oxygen_bed}</h4>
+                <h4>ICU Bed :{data_hospital.icu_bed}</h4>
+                <h4>ventilator Bed : {data_hospital.v_bed}</h4>
+                <h4><button type="button" class="button" onClick={() => gotoDetails(data_hospital)}>Book Now</button></h4>
+
+              </div>
+
+
+            </figure>
+
+          </div>
+      
 
         {data.map((d, index) =>
 

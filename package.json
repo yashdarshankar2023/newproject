@@ -18,10 +18,10 @@
   "predeploy": "npm run build",
   
     
-  "deploy": "npm run build && gh-pages -d project",
+  "deploy": "npm run build && gh-pages -d project"
   
     
-  "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+ 
   
   },
   
