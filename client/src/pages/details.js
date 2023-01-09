@@ -183,10 +183,10 @@ const details = () => {
                     <div className="chart1">
                         <br />
                         <h4>Chart for all types of bed Available</h4>
-                        <PieChart width={1000} height={600}>
+                        <PieChart width={400} height={600}>
                             <Pie
                                 data={total_data}
-                                cx="30%"
+                                cx="50%"
                                 cy="35%"
                                 labelLine={false}
                                 label={renderCustomizedLabel}
@@ -236,7 +236,7 @@ const details = () => {
 
 
                 </div>
-                <br /><br /> <br /><br /><br /> <br /><br />
+                <br /><br /> <br /><br /><br /> 
 
                 <div className="types_charts">
                     <div className="diff_charts">

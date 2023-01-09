@@ -308,7 +308,7 @@ body {
 }
 .contact_form input[type=radio]{
   width: 60px;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 @media screen and (max-width:500px) {
   .total_charts {
@@ -323,6 +323,7 @@ body {
     width: 90%;
     height: 500px;
     text-align: center;
+    margin-left: 5%;
   }
   .chart2{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -331,7 +332,8 @@ body {
     width: 90%;
     height: 500px;
     text-align: center;
-    margin-left: 10%;
+    margin-left: 5%;
+    margin-top: 5%;;
   }
   .types_charts{
     display: block;
@@ -347,6 +349,7 @@ body {
     margin: auto;
     font-family: arial;
     margin-top: 5%;
+    margin-left: 5%;
   
   }
   .contact_form{
