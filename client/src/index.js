@@ -9,7 +9,7 @@ import Logs from "./pages/logs"
 import Admin from "./pages/admin"
 import Signup from "./pages/signup"
 import About from "./pages/about"
-
+import Chat from "./pages/NurseBot"
 
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -33,6 +33,8 @@ export default function App1() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/about" element={<About />} />
           <Route path="/details_admin" element={<DetailsAdmin />} />
+          <Route path="/chat" element={<Chat/>} />
+          
           
           
           

@@ -21,7 +21,10 @@ const newnavbar = () => {
                         <Link to="/" class="nav-link"><span class="nav-link-span"><span class="u-nav">Home</span></span></Link>
                         
                         <Link to="/about" class="nav-link"><span class="nav-link-span"><span class="u-nav">About Us</span></span></Link>
+                        <Link to="/chat" class="nav-link"><span class="nav-link-span"><span class="u-nav">NurseBot</span></span></Link>
                         <Link to="/admin" class="nav-link"><span class="nav-link-span"><span class="u-nav">Admin</span></span></Link>
+                        
+                        
                         
                         
                     </div>

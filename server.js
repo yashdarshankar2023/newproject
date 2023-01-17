@@ -226,7 +226,7 @@ app.post("/signup", function (request, response) {
     var password1 = request.body.password1register;
     var application_id = request.body.r_appid;
     var contact = request.body.number;
-    var vacancy = request.body.vacancyregister;
+    // var vacancy = request.body.vacancyregister;
     var general = request.body.generalbed;
     var generalav = request.body.generalbedav;
     var icu = request.body.icubed;
@@ -250,7 +250,7 @@ app.post("/signup", function (request, response) {
                 "application_id": application_id,
                 "contact": contact,
                 "password": password,
-                "vacancy": vacancy,
+                "vacancy": (parseInt(general) + parseInt(icu) + parseInt(oxygen) + parseInt(ventilator)).toString(),
                 "general_bed": general,
                 "icu_bed": icu,
                 "oxygen_bed": oxygen,

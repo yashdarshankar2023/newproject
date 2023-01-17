@@ -23,9 +23,9 @@ const signup = () => {
                     <p>
                         <input type="number" id="number" name="number" pattern="[0-9]"  placeholder="Contact" min="7000000000" max="9999999999" required/><i class="validation"><span></span><span></span></i>
                     </p>
-                    <p>
+                    {/* <p>
                         <input type="number" id="vacancyregister" name="vacancyregister" pattern="[0-9]" min="0" max = "100000" placeholder="Enter the total vacancy" required/><i class="validation"><span></span><span></span></i>
-                    </p>
+                    </p> */}
                     <p>
                         <input type="number" id="generalbed" name="generalbed" pattern="[0-9]" min="0" max = "100000" placeholder="Enter total number of general bed" required/><i class="validation"><span></span><span></span></i>
                     </p>
