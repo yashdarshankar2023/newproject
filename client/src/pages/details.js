@@ -142,12 +142,12 @@ const details = () => {
     const sendEmail = (e) => {
         e.preventDefault();
 
-        // emailjs.sendForm('service_zrc54nj', 'template_kvrs5bp', form.current, '-CTw5EdyGpJVcQ-XD')
-        //      .then((result) => {
-        //          console.log(result.text);
-        //      }, (error) => {
-        //          console.log(error.text);
-        //      });
+        emailjs.sendForm('service_zrc54nj', 'template_kvrs5bp', form.current, '-CTw5EdyGpJVcQ-XD')
+             .then((result) => {
+                 console.log(result.text);
+             }, (error) => {
+                 console.log(error.text);
+             });
         
         const hostname = location.state.id.name;
         const oxygen = location.state.id.oxygen_bed_av;
