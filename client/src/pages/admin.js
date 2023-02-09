@@ -3,6 +3,18 @@ import { Link ,useNavigate} from 'react-router-dom'
 import "../css/AdminStyle.css"
 const admin = () => {
     const navigate = useNavigate();
+    if(localStorage.getItem('signout')=="no"){
+        var logid = localStorage.getItem("signoutid")
+    
+
+        navigate("/details_admin",{state : {id:logid}})
+        
+        if(logid.name==undefined){
+            console.log("Error : Unable to connect to mongodb server try sign out and signning in again.")
+        }
+
+    }
+
     
     const [data, setData] = React.useState([]);
     React.useEffect(() => {
@@ -26,8 +38,11 @@ const admin = () => {
             if(d.name==UN && d.password==PW){
                 
             console.log("this"+data_hospital)
+            localStorage.setItem('signout', 'no');
+            localStorage.setItem('signoutid', d);
+            
              navigate("/details_admin",{state : {id:d}})
-                //navigate("/details")
+                
                 
                 
             

@@ -21,17 +21,28 @@ const NurseBot = () => {
         const question2 = ["book", "bed", "hospital"]
         const answer2 = "click on home page and then book your bed";
 
-        const questions = [question1, question2]
-        const answers = [answer1, answer2]
+        const question3 = ["about","yourself"]
+        const answer3 = "Click on the AboutUs page on the navigator to find more information about us."
+
+        const question4 = ["loggin","account","admin"]
+        const answer4 = "Click on Admin page on navigator to Loggin"
+
+        const question5 = ["bye","goodbye","ta ta"]
+        const answer5 = "Good Bye"
+
+        const questions = [question1, question2, question3, question4, question5]
+        const answers = [answer1, answer2, answer3, answer4, answer5]
         let found = 0
         const inp = inp1.split(" ");
+        var ans
         questions.forEach((Q, i) => {
             Q.forEach(q1 => {
                 inp.forEach(ip => {
                     console.log(ip)
 
                     if (q1 == ip.toLowerCase()) {
-                        box.innerHTML += '<div class="msg-left">' + answers[i] + '</div>';
+                        ans = answers[i]
+                        
                         box.scrollTop = box.scrollHeight;
                         found = 1
                         return;
@@ -46,6 +57,7 @@ const NurseBot = () => {
 
             })
         })
+        box.innerHTML += '<div class="msg-left">' + ans + '</div>';
         if (found == 0) {
             box.innerHTML += '<div class="msg-left">' + "Can you please rephrase sir" + '</div>';
             box.scrollTop = box.scrollHeight;
@@ -56,7 +68,7 @@ const NurseBot = () => {
             <center>
                 <h1 className='msg-heading'>NurseBot</h1>
             </center>
-            <div id="box"><div class="msg-left">sample text</div></div>
+            <div id="box"><div class="msg-left">Hi, How might I help you today ?</div></div>
 
             <form id="send-container">
 

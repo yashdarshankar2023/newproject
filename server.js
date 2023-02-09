@@ -96,14 +96,43 @@ app.post("/regular_bed_log", function (request, response) {
                 "email":email,
                 "Hospital":hostname
             }
+
             console.log("inserted");
             console.log(today);
             await col.insertOne(personDocument);
-            await col1.findOneAndUpdate(
-                { "name" : hostname },
-                { $set: { "general_bed_av" : (parseInt(general) + 1).toString() , "oxygen_bed_av" : (parseInt(oxygen) + 1).toString(), "icu_bed_av" : (parseInt(icu) + 1).toString(), "v_bed_av" : (parseInt(ventilator) + 1).toString() } }
-             )
+            if(bed == "General bed"){
+                const temp = col1.findOne({ "name" : hostname })
+                if(parseInt(temp.general_bed_av) >= parseInt(temp.general_bed)){
+                    console.log("wronnng wronng conditions doesn,t meet.....")
+                }
+                await col1.findOneAndUpdate(
+                    { "name" : hostname },
+                    { $set: { "general_bed_av" : (parseInt(general) + 1).toString()  } }
+                 )
 
+            }
+            else if(bed == "Oxygen bed"){
+                await col1.findOneAndUpdate(
+                    { "name" : hostname },
+                    { $set: { "oxygen_bed_av" : (parseInt(oxygen) + 1).toString() } }
+                 )
+
+            }
+            else if(bed == "ICU bed"){
+                await col1.findOneAndUpdate(
+                    { "name" : hostname },
+                    { $set: { "icu_bed_av" : (parseInt(icu) + 1).toString()} }
+                 )
+
+            }
+            else if(bed == "Ventilator bed"){
+                await col1.findOneAndUpdate(
+                    { "name" : hostname },
+                    { $set: { "v_bed_av" : (parseInt(ventilator) + 1).toString() } }
+                 )
+
+            }
+            
 
         } catch (err) {
             console.log(err.stack);

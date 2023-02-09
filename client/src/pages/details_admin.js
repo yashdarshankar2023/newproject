@@ -1,10 +1,16 @@
 import "../css/DetailsStyles.css"
-import { useLocation } from 'react-router-dom';
+import { useLocation,Link,useNavigate } from 'react-router-dom';
 
 import React, { PureComponent } from 'react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Sector } from 'recharts';
 
 const details_admin = () => {
+
+    const navigate = useNavigate()
+    
+
+
+
     const location = useLocation();
     console.log(location.state.id.name)
     const hostname = location.state.id.name;
@@ -46,25 +52,25 @@ const details_admin = () => {
         {
             name: 'Regular Beds',
             Total: parseInt(location.state.id.general_bed),
-            Available: parseInt(location.state.id.general_bed_av),
+            Available: parseInt(location.state.id.general_bed) - parseInt(location.state.id.general_bed_av),
 
         },
         {
             name: 'Oxygen Beds',
             Total: parseInt(location.state.id.oxygen_bed),
-            Available: parseInt(location.state.id.oxygen_bed_av),
+            Available: parseInt(location.state.id.oxygen_bed) - parseInt(location.state.id.oxygen_bed_av),
 
         },
         {
             name: 'ICU Beds',
             Total: parseInt(location.state.id.icu_bed),
-            Available: parseInt(location.state.id.icu_bed_av),
+            Available: parseInt(location.state.id.icu_bed) - parseInt(location.state.id.icu_bed_av),
 
         },
         {
             name: 'Ventilator Beds',
             Total: parseInt(location.state.id.v_bed),
-            Available: parseInt(location.state.id.v_bed_av),
+            Available: parseInt(location.state.id.v_bed) - parseInt(location.state.id.v_bed_av),
 
         }
 
@@ -80,6 +86,13 @@ const details_admin = () => {
             });
     }
         , []);
+       
+
+        function gotoDetails(){
+            localStorage.setItem('signout', 'yes');
+            navigate("/admin")
+          
+          }
 
     return (
         <>
@@ -88,6 +101,8 @@ const details_admin = () => {
 
             <center>
                 <h1>Welcome to {location.state.id.name}</h1>
+                <button class="btn-signout" onClick={() => gotoDetails()}>Sign Out</button>
+                
             </center>
             <hr style={{ height: "10px" }} />
             <br />
@@ -107,7 +122,7 @@ const details_admin = () => {
 
                     <h3>Regular Beds</h3>
                     <br />
-                    <p>Current vacancy :- {location.state.id.general_bed}</p>
+                    <p>Total vacancy :- {location.state.id.general_bed}</p>
 
                     <form class="form-container" method="post" action="/general_update">
                         <input type="hidden" placeholder="Enter Name" id="name" name="name" value={location.state.id.name} required />
@@ -126,7 +141,7 @@ const details_admin = () => {
                     <br />
                     <h3>Oxygen Beds</h3>
                     <br />
-                    <p>Current vacancy :- {location.state.id.oxygen_bed}</p>
+                    <p>Total vacancy :- {location.state.id.oxygen_bed}</p>
                     <form class="form-container" method="post" action="/oxygen_update">
                         <input type="hidden" placeholder="Enter Name" id="name" name="name" value={location.state.id.name} required />
                         <input type="number" placeholder="New Vacancy" id="vacancy" name="vacancy" required />
@@ -144,7 +159,7 @@ const details_admin = () => {
 
                     <h3>ICU Beds</h3>
                     <br />
-                    <p>Current vacancy :- {location.state.id.icu_bed}</p>
+                    <p>Total vacancy :- {location.state.id.icu_bed}</p>
                     <form class="form-container" method="post" action="/icu_update">
                         <input type="hidden" placeholder="Enter Name" id="name" name="name" value={location.state.id.name} required />
                         <input type="number" placeholder="New Vacancy" id="vacancy" name="vacancy" required />
@@ -162,7 +177,7 @@ const details_admin = () => {
 
                     <h3>Ventilator Beds</h3>
                     <br />
-                    <p>Current vacancy :- {location.state.id.v_bed}</p>
+                    <p>Total vacancy :- {location.state.id.v_bed}</p>
                     <form class="form-container" method="post" action="/ventilator_update">
                         <input type="hidden" placeholder="Enter Name" id="name" name="name" value={location.state.id.name} required />
                         <input type="number" placeholder="New Vacancy" id="vacancy" name="vacancy" required />

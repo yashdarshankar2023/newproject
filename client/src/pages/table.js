@@ -45,11 +45,11 @@ const table = (SetselectMode) => {
 
               <div class="listing">
                 <h4>{data_hospital.name}</h4>
-                <h4>Total :{data_hospital.vacancy}</h4>
-                <h4>General : {data_hospital.general_bed}</h4>
-                <h4>Oxygen : {data_hospital.oxygen_bed}</h4>
-                <h4>ICU Bed :{data_hospital.icu_bed}</h4>
-                <h4>ventilator Bed : {data_hospital.v_bed}</h4>
+                <h4 style={{display:"flex"}}>Total Bed Available :<div style={{color:"green",fontStyle:"bold",marginRight: '.5rem',marginLeft:".5rem"}}>{parseInt(data_hospital.general_bed - data_hospital.general_bed_av) + parseInt(data_hospital.oxygen_bed - data_hospital.oxygen_bed_av) + parseInt(data_hospital.icu_bed - data_hospital.icu_bed_av) + parseInt(data_hospital.v_bed - data_hospital.v_bed_av)}</div></h4>
+                <h4 style={{display:"flex"}}>General Bed Available: <div style={{color:"green",fontStyle:"bold",marginRight: '.5rem',marginLeft:".5rem"}}>{data_hospital.general_bed - data_hospital.general_bed_av}</div></h4>
+                <h4 style={{display:"flex"}}>Oxygen Bed Available: <div style={{color:"green",fontStyle:"bold",marginRight: '.5rem',marginLeft:".5rem"}}>{data_hospital.oxygen_bed - data_hospital.oxygen_bed_av}</div></h4>
+                <h4 style={{display:"flex"}}>ICU Bed Available:<div style={{color:"green",fontStyle:"bold",marginRight: '.5rem',marginLeft:".5rem"}}>{data_hospital.icu_bed - data_hospital.icu_bed_av}</div></h4>
+                <h4 style={{display:"flex"}}>ventilator Bed Available: <div style={{color:"green",fontStyle:"bold",marginRight: '.5rem',marginLeft:".5rem"}}>{data_hospital.v_bed - data_hospital.v_bed_av}</div></h4>
                 <h4><button type="button" class="button" onClick={() => gotoDetails(data_hospital)}>Book Now</button></h4>
 
               </div>
@@ -58,25 +58,7 @@ const table = (SetselectMode) => {
             </figure>
 
           </div>
-          <div class="listing-item">
-            <figure class="image">
-              <img src={data_hospital.link} alt="image" />
-
-              <div class="listing">
-                <h4>{data_hospital.name}</h4>
-                <h4>Total :{data_hospital.vacancy}</h4>
-                <h4>General : {data_hospital.general_bed}</h4>
-                <h4>Oxygen : {data_hospital.oxygen_bed}</h4>
-                <h4>ICU Bed :{data_hospital.icu_bed}</h4>
-                <h4>ventilator Bed : {data_hospital.v_bed}</h4>
-                <h4><button type="button" class="button" onClick={() => gotoDetails(data_hospital)}>Book Now</button></h4>
-
-              </div>
-
-
-            </figure>
-
-          </div>
+          
       
 
         {data.map((d, index) =>
@@ -88,11 +70,11 @@ const table = (SetselectMode) => {
 
               <div class="listing">
                 <h4>{d.name}</h4>
-                <h4>Total :{d.vacancy}</h4>
-                <h4>General : {d.general_bed}</h4>
-                <h4>Oxygen : {d.oxygen_bed}</h4>
-                <h4>ICU Bed :{d.icu_bed}</h4>
-                <h4>ventilator Bed : {d.v_bed}</h4>
+                <h4 style={{display:"flex"}}>Total Bed Available :<div style={{color:"green",fontStyle:"bold",marginRight: '.5rem',marginLeft:".5rem"}}>{parseInt(d.general_bed - d.general_bed_av) + parseInt(d.oxygen_bed - d.oxygen_bed_av) + parseInt(d.icu_bed - d.icu_bed_av) + parseInt(d.v_bed - d.v_bed_av)}</div></h4>
+                <h4 style={{display:"flex"}}>General Bed Available: <div style={{color:"green",fontStyle:"bold",marginRight: '.5rem',marginLeft:".5rem"}}>{d.general_bed - d.general_bed_av}</div></h4>
+                <h4 style={{display:"flex"}}>Oxygen Bed Available: <div style={{color:"green",fontStyle:"bold",marginRight: '.5rem',marginLeft:".5rem"}}>{d.oxygen_bed - d.oxygen_bed_av}</div></h4>
+                <h4 style={{display:"flex"}}>ICU Bed Available:<div style={{color:"green",fontStyle:"bold",marginRight: '.5rem',marginLeft:".5rem"}}>{d.icu_bed - d.icu_bed_av}</div></h4>
+                <h4 style={{display:"flex"}}>ventilator Bed Available: <div style={{color:"green",fontStyle:"bold",marginRight: '.5rem',marginLeft:".5rem"}}>{d.v_bed - d.v_bed_av}</div></h4>
                 <h4><button type="button" class="button" onClick={() => gotoDetails(d)}>Book Now</button></h4>
 
               </div>

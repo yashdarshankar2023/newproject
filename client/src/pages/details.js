@@ -18,6 +18,7 @@ const details = () => {
   
     const onnameChange = e => setname(e.target.value);
     const onageChange = e => setage(e.target.value);
+    const onbedChange = e => setbed(e.target.value);
     
 
 
@@ -110,25 +111,25 @@ const details = () => {
         {
             name: 'Regular Beds',
             Total: parseInt(location.state.id.general_bed),
-            Available: parseInt(location.state.id.general_bed_av),
+            Occupied: parseInt(location.state.id.general_bed_av),
 
         },
         {
             name: 'Oxygen Beds',
             Total: parseInt(location.state.id.oxygen_bed),
-            Available: parseInt(location.state.id.oxygen_bed_av),
+            Occupied: parseInt(location.state.id.oxygen_bed_av),
 
         },
         {
             name: 'ICU Beds',
             Total: parseInt(location.state.id.icu_bed),
-            Available: parseInt(location.state.id.icu_bed_av),
+            Occupied: parseInt(location.state.id.icu_bed_av),
 
         },
         {
             name: 'Ventilator Beds',
             Total: parseInt(location.state.id.v_bed),
-            Available: parseInt(location.state.id.v_bed_av),
+            Occupied: parseInt(location.state.id.v_bed_av),
 
         }
 
@@ -141,12 +142,12 @@ const details = () => {
     const sendEmail = (e) => {
         e.preventDefault();
 
-        emailjs.sendForm('service_zrc54nj', 'template_kvrs5bp', form.current, '-CTw5EdyGpJVcQ-XD')
-             .then((result) => {
-                 console.log(result.text);
-             }, (error) => {
-                 console.log(error.text);
-             });
+        // emailjs.sendForm('service_zrc54nj', 'template_kvrs5bp', form.current, '-CTw5EdyGpJVcQ-XD')
+        //      .then((result) => {
+        //          console.log(result.text);
+        //      }, (error) => {
+        //          console.log(error.text);
+        //      });
         
         const hostname = location.state.id.name;
         const oxygen = location.state.id.oxygen_bed_av;
@@ -154,7 +155,7 @@ const details = () => {
         const icu = location.state.id.icu_bed_av;
         const ventilator = location.state.id.v_bed_av;
         
-        const temp = {name,age,email,hostname,oxygen,general,icu,ventilator}
+        const temp = {name,bed,age,email,hostname,oxygen,general,icu,ventilator}
         const requestOptions = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -228,7 +229,7 @@ const details = () => {
                                 <Tooltip />
                                 <Legend />
                                 <Bar dataKey="Total" fill="lightblue" />
-                                <Bar dataKey="Available" fill="lightgreen" />
+                                <Bar dataKey="Occupied" fill="lightgreen" />
                             </BarChart>
                         </ResponsiveContainer>
 
@@ -347,13 +348,13 @@ const details = () => {
 
                             <input type="hidden" name="from_name" value={location.state.id.name} />
                             <div style={{ display: "flex" }}>
-                                <input type="radio" id="General_Bed" name="type_bed" value="General Bed" />
+                                <input type="radio" id="General_Bed" name="type_bed" value="General bed" onChange={onbedChange}/>
                                 <label for="General_Bed">General Bed</label>
-                                <input type="radio" id="Oxygen_Bed" name="type_bed" value="Oxygen Bed" />
+                                <input type="radio" id="Oxygen_Bed" name="type_bed" value="Oxygen bed" onChange={onbedChange}/>
                                 <label for="Oxygen_Bed">Oxygen Bed</label>
-                                <input type="radio" id="ICU_bed" name="type_bed" value="ICU bed" />
+                                <input type="radio" id="ICU_bed" name="type_bed" value="ICU bed" onChange={onbedChange} />
                                 <label for="ICU_bed">ICU bed</label>
-                                <input type="radio" id="Ventilator_bed" name="type_bed" value="Ventilator bed" />
+                                <input type="radio" id="Ventilator_bed" name="type_bed" value="Ventilator bed" onChange={onbedChange}/>
                                 <label for="Ventilator_bed">Ventilator bed</label><br /><br /><br />
 
                             </div>
