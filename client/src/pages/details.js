@@ -12,7 +12,7 @@ const details = () => {
     const [age, setage] = useState("");
     const [email, setemail] = useState("");
     const [bed, setbed] = useState("");
-    // const [hostname, setHostname] = useState("");
+    const [hostname, setHostname] = useState("");
     
     
   
